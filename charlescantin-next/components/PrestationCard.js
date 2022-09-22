@@ -38,7 +38,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 				</div>
 				<div className="object-cover w-full p-4 h-5/5">
 					<Image
-						src={"http://163.172.210.12:80987" + cardMedia}
+						src={"http://163.172.210.12:35601" + cardMedia}
 						width="70%"
 						height="100%"
 						layout="responsive"
@@ -60,7 +60,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 					<BottomSheet open={open} className="z-40 w-full overflow-scroll h-2/4 " height={"50vh"}>
 						<div className="z-40 flex flex-col w-full h-full">
 							<Image
-								src={"http://163.172.210.12:80987" + cardMedia}
+								src={"http://163.172.210.12:35601" + cardMedia}
 								width="70%"
 								height="80%"
 								layout="responsive"

@@ -89,8 +89,8 @@ const Contact = ({ footer, header }) => {
 };
 
 export async function getStaticProps() {
-	const header = await axios.get("http://163.172.210.12:80987/api/header/?populate=*");
-	const footer = await axios.get("http://163.172.210.12:80987/api/footer");
+	const header = await axios.get("http://163.172.210.12:35601/api/header/?populate=*");
+	const footer = await axios.get("http://163.172.210.12:35601/api/footer");
 
 	return {
 		props: {
