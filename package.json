@@ -18,7 +18,8 @@
 		"start-next": "cd charlescantin-next && yarn start",
 		"start-strapi": "cd charlescantin-strapi && yarn start",
 		"build": "concurrently \"yarn:build-next\" \"yarn:build-strapi\"",
-		"start": "concurrently \"yarn:start-next\" \"yarn:start-strapi\""
+		"start": "concurrently \"yarn:start-next\" \"yarn:start-strapi\"",
+		"build-start": "yarn build && yarn start"
 	},
 	"description": "",
 	"devDependencies": {
