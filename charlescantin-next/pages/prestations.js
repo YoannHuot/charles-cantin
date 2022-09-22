@@ -43,9 +43,9 @@ const Prestation = ({ prestations, footer, header }) => {
 };
 
 export async function getServerSideProps() {
-	const prestations = await axios.get("http://163.172.210.12:80988/api/prestations/?populate=*");
-	const header = await axios.get("http://163.172.210.12:80988/api/header/?populate=*");
-	const footer = await axios.get("http://163.172.210.12:80988/api/footer");
+	const prestations = await axios.get("http://163.172.210.12:80987/api/prestations/?populate=*");
+	const header = await axios.get("http://163.172.210.12:80987/api/header/?populate=*");
+	const footer = await axios.get("http://163.172.210.12:80987/api/footer");
 
 	const getPrestations = prestations.data.data.map((prestation, key) => {
 		return prestation.attributes;

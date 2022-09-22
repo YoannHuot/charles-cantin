@@ -162,10 +162,10 @@ const Galerie = ({ categories, footer, header, informations }) => {
 };
 
 export async function getStaticProps() {
-	const categorie = await axios.get("http://163.172.210.12:80988/api/categories/?populate=*");
-	const header = await axios.get("http://163.172.210.12:80988/api/header/?populate=*");
-	const footer = await axios.get("http://163.172.210.12:80988/api/footer");
-	const informations = await axios.get("http://163.172.210.12:80988/api/no-categorie");
+	const categorie = await axios.get("http://163.172.210.12:80987/api/categories/?populate=*");
+	const header = await axios.get("http://163.172.210.12:80987/api/header/?populate=*");
+	const footer = await axios.get("http://163.172.210.12:80987/api/footer");
+	const informations = await axios.get("http://163.172.210.12:80987/api/no-categorie");
 
 	return {
 		props: {
