@@ -1,25 +1,24 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import Image from "next/image";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
 const PrestationCard = ({ prestation, id, isMobile }) => {
-	const [open, setOpen] = useState(false);
-	const [isPair, setIsPair] = useState();
-	const cardMedia = prestation.media.data[0].attributes.url;
-	const path = "http://localhost:1337";
+	// const [open, setOpen] = useState(false);
+	// const [isPair, setIsPair] = useState();
+	// const cardMedia = prestation.media.data[0].attributes.url;
 
-	const handleTitle = () => {
-		if (id % 2 == 0) setIsPair(true);
-		else {
-			setIsPair(false);
-		}
-	};
+	// const handleTitle = () => {
+	// 	if (id % 2 == 0) setIsPair(true);
+	// 	else {
+	// 		setIsPair(false);
+	// 	}
+	// };
 
-	useEffect(() => {
-		handleTitle();
-	}, []);
+	// useEffect(() => {
+	// 	handleTitle();
+	// }, []);
 
 	return (
 		<>
@@ -35,7 +34,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 					style={{
 						boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;",
 					}}>
-					<p className="w-full font-rosarioBoldItalic ">" {prestation.title} "</p>
+					<p className="w-full font-rosarioBoldItalic "> {prestation.title}</p>
 				</div>
 				<div className="object-cover w-full p-4 h-5/5">
 					<Image
@@ -76,7 +75,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 								<Image src="/assets/BackButtonCircle.svg" alt="me" width="40" height="40" />
 							</button>
 							<div className="flex flex-col items-center mt-10 mb-10">
-								<div className="text-2xl font-rosarioBoldItalic text-light">" {prestation.title} "</div>
+								<div className="text-2xl font-rosarioBoldItalic text-light"> {prestation.title} </div>
 								<div className="px-8 pt-4 text-xl text-center font-rosario text-light">
 									{prestation.price}
 								</div>

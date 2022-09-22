@@ -17,9 +17,11 @@ const Contact = ({ footer, header }) => {
 
 	useEffect(() => {
 		handleResize();
-		window.addEventListener("resize", () => {
-			handleResize();
-		});
+		if (typeof window !== "undefined") {
+			window.addEventListener("resize", () => {
+				handleResize();
+			});
+		}
 	}, []);
 
 	return (

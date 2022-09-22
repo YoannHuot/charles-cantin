@@ -1,0 +1,27 @@
+{
+	"name": "charles-cantin",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YoannHuot/charles-cantin.git"
+	},
+	"author": " <contact.yoann.huot@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/YoannHuot/charles-cantin/issues"
+	},
+	"homepage": "https://github.com/YoannHuot/charles-cantin#readme",
+	"scripts": {
+		"build-next": "cd charlescantin-next && yarn build",
+		"build-strapi": "cd charlescantin-strapi && yarn build",
+		"start-next": "cd charlescantin-next && yarn start",
+		"start-strapi": "cd charlescantin-strapi && yarn start",
+		"build": "concurrently \"yarn:build-next\" \"yarn:build-strapi\"",
+		"start": "concurrently \"yarn:start-next\" \"yarn:start-strapi\""
+	},
+	"description": "",
+	"devDependencies": {
+		"concurrently": "^7.4.0"
+	}
+}

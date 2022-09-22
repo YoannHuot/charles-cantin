@@ -5,7 +5,7 @@ import axios from "axios";
 import _ from "underscore";
 import PrestationCard from "../components/PrestationCard";
 
-const prestation = ({ prestations, footer, header }) => {
+const Prestation = ({ prestations, footer, header }) => {
 	const [isMobile, setIsMobile] = useState(false);
 
 	const handleResize = () => {
@@ -18,9 +18,11 @@ const prestation = ({ prestations, footer, header }) => {
 
 	useEffect(() => {
 		handleResize();
-		window.addEventListener("resize", () => {
-			handleResize();
-		});
+		if (typeof window !== "undefined") {
+			window.addEventListener("resize", () => {
+				handleResize();
+			});
+		}
 	}, []);
 
 	return (
@@ -31,7 +33,7 @@ const prestation = ({ prestations, footer, header }) => {
 				<img className="absolute z-10 w-full h-full inset-10" src="/assets/BackGroundEllipses.svg"></img>
 				{!_.isUndefined(prestations) &&
 					prestations.map((prestation, key) => {
-						return <PrestationCard prestation={prestation} id={key} isMobile={isMobile} />;
+						return <PrestationCard prestation={prestation} key={prestation.id} isMobile={isMobile} />;
 					})}
 			</div>
 
@@ -57,4 +59,4 @@ export async function getServerSideProps() {
 	};
 }
 
-export default prestation;
+export default Prestation;
