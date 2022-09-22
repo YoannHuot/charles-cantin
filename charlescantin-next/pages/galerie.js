@@ -140,7 +140,7 @@ const Galerie = ({ categories, footer, header, informations }) => {
 											<div className="relative z-20 p-3 bg-light" alt={show.attributes.name}>
 												<ColorPastille categorie={categorie} absolute={true} />
 												<Image
-													src={"http://localhost:1337" + show.attributes.url}
+													src={"http://163.172.210.12:80988/" + show.attributes.url}
 													width="70%"
 													height="100%"
 													layout="responsive"
@@ -162,10 +162,10 @@ const Galerie = ({ categories, footer, header, informations }) => {
 };
 
 export async function getStaticProps() {
-	const categorie = await axios.get("http://localhost:1337/api/categories/?populate=*");
-	const header = await axios.get("http://localhost:1337/api/header/?populate=*");
-	const footer = await axios.get("http://localhost:1337/api/footer");
-	const informations = await axios.get("http://localhost:1337/api/no-categorie");
+	const categorie = await axios.get("http://163.172.210.12:80988/api/categories/?populate=*");
+	const header = await axios.get("http://163.172.210.12:80988/api/header/?populate=*");
+	const footer = await axios.get("http://163.172.210.12:80988/api/footer");
+	const informations = await axios.get("http://163.172.210.12:80988/api/no-categorie");
 
 	return {
 		props: {

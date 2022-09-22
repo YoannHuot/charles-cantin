@@ -4,6 +4,6 @@ module.exports = {
 	reactStrictMode: false,
 	swcMinify: true,
 	images: {
-		domains: ["localhost"],
+		domains: ["localhost", "http://163.172.210.12:80988"],
 	},
 };
