@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const Header = ({ header, isMobile }) => {
 	const router = useRouter();
 	const url = header.logo.data.attributes.url;
-	const path = "http://163.172.210.12:35601" + url;
+	const path = "loclahost://35600" + url;
 
 	const [showMenu, setShowMenu] = useState(false);
 	const [animate, setAnimate] = useState(false);

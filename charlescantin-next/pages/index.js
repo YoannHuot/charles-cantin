@@ -10,7 +10,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Home({ footer, header, uiHome, homeTitle }) {
-	const path = "http://163.172.210.12:35600/";
+	const path = "loclahost://35601";
 
 	const imgBackground = path + uiHome.Background.data.attributes.url;
 	const mainMedia = path + uiHome.charlesCantin.data.attributes.url;
@@ -75,10 +75,10 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 }
 
 export async function getServerSideProps() {
-	const header = await axios.get("http://163.172.210.12:35601/api/header/?populate=*");
-	const footer = await axios.get("http://163.172.210.12:35601/api/footer");
-	const uiHome = await axios.get("http://163.172.210.12:35601/api/no-categorie/?populate=*");
-	const homeTitle = await axios.get("http://163.172.210.12:35601/api/no-categorie");
+	const header = await axios.get("http://localhost://:35601/api/header/?populate=*");
+	const footer = await axios.get("http://localhost://:35601/api/footer");
+	const uiHome = await axios.get("http://localhost://:35601/api/no-categorie/?populate=*");
+	const homeTitle = await axios.get("http://localhost://:35601/api/no-categorie");
 
 	return {
 		props: {
