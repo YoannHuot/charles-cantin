@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import Image from "next/image";
 import _ from "underscore";
+import { strapiHost } from "../../config";
 
 const ColorPastille = ({ categorie, absolute }) => {
 	switch (categorie.id) {
@@ -140,7 +141,7 @@ const Galerie = ({ categories, footer, header, informations }) => {
 											<div className="relative z-20 p-3 bg-light" alt={show.attributes.name}>
 												<ColorPastille categorie={categorie} absolute={true} />
 												<Image
-													src={"http://localhost://:35601/" + show.attributes.url}
+													src={"http://163.172.210.12:35601/" + show.attributes.url}
 													width="70%"
 													height="100%"
 													layout="responsive"
@@ -162,10 +163,10 @@ const Galerie = ({ categories, footer, header, informations }) => {
 };
 
 export async function getServerSideProps() {
-	const categorie = await axios.get("http://localhost://:35601/api/categories/?populate=*");
-	const header = await axios.get("http://localhost://:35601/api/header/?populate=*");
-	const footer = await axios.get("http://localhost://:35601/api/footer");
-	const informations = await axios.get("http://localhost://:35601/api/no-categorie");
+	const footer = await axios.get(`${strapiHost}/api/footer`);
+	const categorie = await axios.get(`${strapiHost}/api/categories/?populate=*`);
+	const header = await axios.get(`${strapiHost}/api/header/?populate=*`);
+	const informations = await axios.get(`${strapiHost}/api/no-categorie`);
 
 	return {
 		props: {

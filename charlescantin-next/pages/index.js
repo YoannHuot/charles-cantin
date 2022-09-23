@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import axios from "axios";
+import { strapiHost } from "../../config";
 
 import "tailwindcss/tailwind.css";
 
@@ -75,10 +76,10 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 }
 
 export async function getServerSideProps() {
-	const header = await axios.get("http://localhost://:35601/api/header/?populate=*");
-	const footer = await axios.get("http://localhost://:35601/api/footer");
-	const uiHome = await axios.get("http://localhost://:35601/api/no-categorie/?populate=*");
-	const homeTitle = await axios.get("http://localhost://:35601/api/no-categorie");
+	const header = await axios.get(`${strapiHost}/api/header/?populate=*`);
+	const footer = await axios.get(`${strapiHost}/api/footer`);
+	const uiHome = await axios.get(`${strapiHost}/api/no-categorie/?populate=*`);
+	const homeTitle = await axios.get(`${strapiHost}/api/no-categorie`);
 
 	return {
 		props: {

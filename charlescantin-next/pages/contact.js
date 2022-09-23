@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from "axios";
 import Image from "next/image";
+import { strapiHost } from "../../config";
 
 const Contact = ({ footer, header }) => {
 	const [isMobile, setIsMobile] = useState(false);
@@ -89,8 +90,8 @@ const Contact = ({ footer, header }) => {
 };
 
 export async function getServerSideProps() {
-	const header = await axios.get("http://localhost://:35601/api/header/?populate=*");
-	const footer = await axios.get("http://localhost://:35601/api/footer");
+	const header = await axios.get(`${strapiHost}/api/header/?populate=*`);
+	const footer = await axios.get(`${strapiHost}/api/footer`);
 
 	return {
 		props: {

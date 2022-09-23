@@ -3,22 +3,23 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
+import { strapiHost, nextHost } from "../../config";
 
 const PrestationCard = ({ prestation, id, isMobile }) => {
-	// const [open, setOpen] = useState(false);
-	// const [isPair, setIsPair] = useState();
-	// const cardMedia = prestation.media.data[0].attributes.url;
+	const [open, setOpen] = useState(false);
+	const [isPair, setIsPair] = useState();
+	const cardMedia = prestation.media.data[0].attributes.url;
 
-	// const handleTitle = () => {
-	// 	if (id % 2 == 0) setIsPair(true);
-	// 	else {
-	// 		setIsPair(false);
-	// 	}
-	// };
+	const handleTitle = () => {
+		if (id % 2 == 0) setIsPair(true);
+		else {
+			setIsPair(false);
+		}
+	};
 
-	// useEffect(() => {
-	// 	handleTitle();
-	// }, []);
+	useEffect(() => {
+		handleTitle();
+	}, []);
 
 	return (
 		<>
@@ -38,7 +39,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 				</div>
 				<div className="object-cover w-full p-4 h-5/5">
 					<Image
-						src={"http://localhost://:35601" + cardMedia}
+						src={strapiHost + cardMedia}
 						width="70%"
 						height="100%"
 						layout="responsive"
@@ -60,7 +61,7 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 					<BottomSheet open={open} className="z-40 w-full overflow-scroll h-2/4 " height={"50vh"}>
 						<div className="z-40 flex flex-col w-full h-full">
 							<Image
-								src={"http://localhost://:35601" + cardMedia}
+								src={strapiHost + cardMedia}
 								width="70%"
 								height="80%"
 								layout="responsive"

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import _ from "underscore";
 import PrestationCard from "../components/PrestationCard";
+import { strapiHost } from "../../config";
 
 const Prestation = ({ prestations, footer, header }) => {
 	const [isMobile, setIsMobile] = useState(false);
@@ -43,9 +44,9 @@ const Prestation = ({ prestations, footer, header }) => {
 };
 
 export async function getServerSideProps() {
-	const prestations = await axios.get("http://163.172.210.12:35601/api/prestations/?populate=*");
-	const header = await axios.get("http://163.172.210.12:35601/api/header/?populate=*");
-	const footer = await axios.get("http://163.172.210.12:35601/api/footer");
+	const footer = await axios.get(`${strapiHost}/api/footer`);
+	const prestations = await axios.get(`${strapiHost}/api/prestations/?populate=*`);
+	const header = await axios.get(`${strapiHost}/api/header/?populate=*`);
 
 	const getPrestations = prestations.data.data.map((prestation, key) => {
 		return prestation.attributes;

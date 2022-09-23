@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { strapiHost, nextHost } from "../../config";
 
 const Header = ({ header, isMobile }) => {
 	const router = useRouter();
 	const url = header.logo.data.attributes.url;
-	const path = "loclahost://35600" + url;
+	const path = { nextHost } + "/" + url;
 
 	const [showMenu, setShowMenu] = useState(false);
 	const [animate, setAnimate] = useState(false);
