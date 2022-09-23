@@ -11,7 +11,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Home({ footer, header, uiHome, homeTitle }) {
-	const path = "loclahost://35601";
 
 	const imgBackground = path + uiHome.Background.data.attributes.url;
 	const mainMedia = path + uiHome.charlesCantin.data.attributes.url;
@@ -42,7 +41,7 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 						{homeTitle}
 					</div>
 					<img
-						src={mainMedia}
+						src={strapiHost + mainMedia}
 						alt="picture of charles cantin"
 						className="object-cover w-full h-full z-2 mainMedia"
 						style={

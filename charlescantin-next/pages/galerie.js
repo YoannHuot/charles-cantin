@@ -137,11 +137,12 @@ const Galerie = ({ categories, footer, header, informations }) => {
 							<>
 								{selection.indexOf(categorie) > -1 &&
 									_.map(categorie.attributes.media.data, (show, i) => {
+										console.log(show.attributes.url)
 										return (
 											<div className="relative z-20 p-3 bg-light" alt={show.attributes.name}>
 												<ColorPastille categorie={categorie} absolute={true} />
 												<Image
-													src={"http://163.172.210.12:35601/" + show.attributes.url}
+													src={strapiHost + show.attributes.url}
 													width="70%"
 													height="100%"
 													layout="responsive"

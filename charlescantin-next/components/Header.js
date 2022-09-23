@@ -17,6 +17,7 @@ const Header = ({ header, isMobile }) => {
 
 		router.push("/" + nav);
 	};
+	console.log(header.page2)
 
 	return (
 		<div className="relative z-20 flex flex-row items-center justify-center w-full h-40 overflow-visible bg-primary">
@@ -35,7 +36,7 @@ const Header = ({ header, isMobile }) => {
 					<button
 						className="button"
 						onClick={() => {
-							navigate(header.page1);
+							navigate("/galerie");
 						}}
 						aria-label={`go to ${header.page1}`}>
 						{header.page1}
