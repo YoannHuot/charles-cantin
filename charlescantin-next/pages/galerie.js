@@ -98,6 +98,10 @@ const Galerie = ({ categories, footer, header, informations }) => {
 		}
 	}, [selection]);
 
+	const myLoader = ({ src, width, quality }) => {
+		return `${strapiHost}${src}?w=500&q=${quality || 20}`
+	  }
+
 	return (
 		<div className="relative flex flex-col justify-between h-screen overflow-x-hidden font-lato">
 			<Header header={header} isMobile={isMobile} />
@@ -142,7 +146,8 @@ const Galerie = ({ categories, footer, header, informations }) => {
 											<div className="relative z-20 p-3 bg-light" alt={show.attributes.name}>
 												<ColorPastille categorie={categorie} absolute={true} />
 												<Image
-													src={strapiHost + show.attributes.url}
+													loader={myLoader}
+													src={show.attributes.url}
 													width="70%"
 													height="100%"
 													layout="responsive"

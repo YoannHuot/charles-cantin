@@ -23,6 +23,10 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 		handleTitle();
 	}, []);
 
+const myLoader = ({ src, width, quality }) => {
+	return `${strapiHost}${src}?w=500&q=${quality || 20}`
+  }
+
 	return (
 		<>
 			<div
@@ -41,7 +45,8 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 				</div>
 				<div className="object-cover w-full p-4 h-5/5">
 					<Image
-						src={strapiHost + cardMedia}
+						loader={myLoader}
+						src={cardMedia}
 						width="70%"
 						height="100%"
 						layout="responsive"

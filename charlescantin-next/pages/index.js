@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Home({ footer, header, uiHome, homeTitle }) {
+	const path = "localhost://35601";
 
 	const imgBackground = path + uiHome.Background.data.attributes.url;
 	const mainMedia = path + uiHome.charlesCantin.data.attributes.url;
@@ -31,7 +32,10 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 			handleResize();
 		});
 	}, []);
-
+	const myLoader = ({ src, width, quality }) => {
+		return `${strapiHost}${src}?w=500&q=${quality || 20}`
+	  }
+	
 	return (
 		<div className="relative flex flex-col justify-between h-screen overflow-x-hidden">
 			<Header header={header} isMobile={isMobile} />
@@ -40,10 +44,15 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 					<div className="absolute w-1/3 text-4xl leading-loose text-center transform -translate-y-1/2 -translate-x-2/3 xs:-translate-x-1/2 z-2 md:text-6xl lg:text-8xl top-1/2 left-1/2 text-light font-suraBold">
 						{homeTitle}
 					</div>
-					<img
-						src={strapiHost + mainMedia}
+					<Image
+						loader={myLoader}
+						src={mainMedia}
+						width="70%"
+						height="100%"
+						layout="responsive"
 						alt="picture of charles cantin"
 						className="object-cover w-full h-full z-2 mainMedia"
+						objectFit="cover"
 						style={
 							isMobile
 								? {
@@ -60,10 +69,12 @@ export default function Home({ footer, header, uiHome, homeTitle }) {
 					/>
 				</div>
 
-				<img
+				<Image
+					loader={myLoader}
 					aria-disabled="true"
 					src={imgBackground}
 					className="absolute z-1 top-20 opacity-70"
+					objectFit="cover"
 					style={{
 						height: "50vh",
 					}}
@@ -79,7 +90,7 @@ export async function getServerSideProps() {
 	const footer = await axios.get(`${strapiHost}/api/footer`);
 	const uiHome = await axios.get(`${strapiHost}/api/no-categorie/?populate=*`);
 	const homeTitle = await axios.get(`${strapiHost}/api/no-categorie`);
-	
+
 	return {
 		props: {
 			footer: footer.data.data.attributes,

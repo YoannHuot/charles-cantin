@@ -7,7 +7,7 @@ import { strapiHost, nextHost } from "../../config";
 const Header = ({ header, isMobile }) => {
 	const router = useRouter();
 	const url = header.logo.data.attributes.url;
-	const path = { nextHost } + "/" + url;
+	const path =  nextHost  + "/" + url;
 
 	const [showMenu, setShowMenu] = useState(false);
 	const [animate, setAnimate] = useState(false);
@@ -17,13 +17,17 @@ const Header = ({ header, isMobile }) => {
 
 		router.push("/" + nav);
 	};
-	console.log(header.page2)
 
+	const myLoader = ({ src, width, quality }) => {
+		return `${strapiHost}${src}?w=500&q=${quality || 20}`
+	  }
+	
 	return (
 		<div className="relative z-20 flex flex-row items-center justify-center w-full h-40 overflow-visible bg-primary">
 			<button className={`${isMobile && "w-1/2 xs:w-2/6"} w-1/2 md:h-full `} aria-label="go to home">
-				<img
-					src={path}
+				<Image
+				loader={myLoader}
+					src={url}
 					className={`logo object-cover h-full`}
 					onClick={() => {
 						router.push("/");
