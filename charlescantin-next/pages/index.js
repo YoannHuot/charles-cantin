@@ -80,7 +80,7 @@ export async function getServerSideProps() {
 	const footer = await axios.get(`${strapiHost}/api/footer`);
 	const uiHome = await axios.get(`${strapiHost}/api/no-categorie/?populate=*`);
 	const homeTitle = await axios.get(`${strapiHost}/api/no-categorie`);
-
+	
 	return {
 		props: {
 			footer: footer.data.data.attributes,

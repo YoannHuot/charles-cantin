@@ -10,6 +10,8 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 	const [isPair, setIsPair] = useState();
 	const cardMedia = prestation.media.data[0].attributes.url;
 
+	console.log("path que je demande")
+	console.log(strapiHost + cardMedia)
 	const handleTitle = () => {
 		if (id % 2 == 0) setIsPair(true);
 		else {
