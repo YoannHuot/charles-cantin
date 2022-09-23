@@ -90,6 +90,7 @@ const Contact = ({ footer, header }) => {
 };
 
 export async function getServerSideProps() {
+	console.log(strapiHost);
 	const header = await axios.get(`${strapiHost}/api/header/?populate=*`);
 	const footer = await axios.get(`${strapiHost}/api/footer`);
 
