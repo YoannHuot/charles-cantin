@@ -10,8 +10,6 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 	const [isPair, setIsPair] = useState();
 	const cardMedia = prestation.media.data[0].attributes.url;
 
-	console.log("path que je demande")
-	console.log(strapiHost + cardMedia)
 	const handleTitle = () => {
 		if (id % 2 == 0) setIsPair(true);
 		else {
@@ -23,9 +21,9 @@ const PrestationCard = ({ prestation, id, isMobile }) => {
 		handleTitle();
 	}, []);
 
-const myLoader = ({ src, width, quality }) => {
-	return `${strapiHost}${src}?w=500&q=${quality || 20}`
-  }
+	const myLoader = ({ src, width, quality }) => {
+		return `${strapiHost}${src}?w=500&q=${quality || 20}`;
+	};
 
 	return (
 		<>
@@ -68,7 +66,8 @@ const myLoader = ({ src, width, quality }) => {
 					<BottomSheet open={open} className="z-40 w-full overflow-scroll h-2/4 " height={"50vh"}>
 						<div className="z-40 flex flex-col w-full h-full">
 							<Image
-								src={strapiHost + cardMedia}
+								loader={myLoader}
+								src={cardMedia}
 								width="70%"
 								height="80%"
 								layout="responsive"
