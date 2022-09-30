@@ -8,7 +8,7 @@ Depuis un terminal de commandes :
 - Accéder au dossier charlescantin-next et lancer la commande npm install suivi de npm run build. Une fois fait, lancer l'application via npm run start pour accéder à cette dernière sur http://localhost:35600 
 - Pour modifier l'application à votre convenance, utiliser la commande npm run dev. Attention toutefois, l'appel à l'API restera l'adresse du serveur et vous ne pourrez pas changer le contenu du back office. 
 
-Si vous souhaitez accéder à Strapi : 
+Si vous souhaitez accéder à l'admin Strapi et changer le contenu du back-office : 
 - Un utilisateur test a été créé à cet effet, il a été transmis dans le document de retour d'exercice 
 
 Concernant Strapi : 
